@@ -9,6 +9,6 @@ namespace simoncharlos.DAO
 {
     class Config
     {
-        public static string connectStr = "Server=127.0.0.1;Uid=root;Database=produit;";
+        public static string connectStr = "Server=127.0.0.1;Uid=root;Database=produits;SslMode=none;";
     }
 }

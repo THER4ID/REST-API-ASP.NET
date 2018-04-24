@@ -36,7 +36,9 @@ namespace simoncharlos.DAO
                     produit.Prix = dr.GetDouble("Prix");
                     produit.Quantite = dr.GetInt32("quantite");
                 }
-                catch{}
+                catch{
+                    return null;
+                }
             }
 
             dr.Close();
