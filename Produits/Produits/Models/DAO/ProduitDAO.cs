@@ -159,6 +159,11 @@ namespace simoncharlos.DAO
 
         }
 
+        public static bool ProduitUpdate(Produit produit)
+        {
+            return false;
+        }
+
         //public static Produit getProduitRecherche(string recherche)
         //{
         //    var produit = new Produit();

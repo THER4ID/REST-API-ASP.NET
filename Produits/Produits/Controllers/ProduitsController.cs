@@ -90,11 +90,11 @@ namespace Produits.Controllers
         
         }
 
-        // GET: Produits/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //// GET: Produits/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
         // POST: Produits/Edit/5
         [HttpPost]
@@ -122,18 +122,17 @@ namespace Produits.Controllers
         [HttpDelete]
         public string Delete(string id)
         {
-            int id_real;
-            if(!Int32.TryParse(id, out id_real)){
-                ProduitDAO.deleteParNomProduit(id);
-            }
-            else
-            {
-                ProduitDAO.deleteParID(id_real);
-            }
-
             try
             {
-                // TODO: Add delete logic here
+                int id_real;
+                if (!Int32.TryParse(id, out id_real))
+                {
+                    ProduitDAO.deleteParNomProduit(id);
+                }
+                else
+                {
+                    ProduitDAO.deleteParID(id_real);
+                }
 
                 return "Réussi";
             }
