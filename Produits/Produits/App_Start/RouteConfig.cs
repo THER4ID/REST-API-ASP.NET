@@ -15,8 +15,8 @@ namespace Produits
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}/{id_max}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, id_max= UrlParameter.Optional }
             );
         }
     }

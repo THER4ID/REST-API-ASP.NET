@@ -14,9 +14,22 @@ namespace Produits.Controllers
     public class ProduitsController : Controller
     {
         // GET: Produits
-        public ActionResult Index()
+        public string Index()
         {
-            return View();
+            return JsonConvert.SerializeObject(ProduitDAO.getProduits());
+        }
+
+        //GET: Produits/Range/1/5
+        public string Range(int id, int id_max)
+        {
+            List<Produit> p = ProduitDAO.getProduits(id, id_max);
+
+            if (p.Count != 0)
+            {
+                return JsonConvert.SerializeObject(p);
+            }
+
+            return JsonConvert.SerializeObject("Erreur les produits en question n'existent pas");
         }
 
         // GET: Produits/Details/5
@@ -49,13 +62,25 @@ namespace Produits.Controllers
             Produit plan = null;
             try
             {
-                // assuming JSON.net/Newtonsoft library from http://json.codeplex.com/
                 plan = JsonConvert.DeserializeObject<Produit>(json);
                 if (plan == null)
                 {
                     return "Erreur";
                 }
-                return JsonConvert.SerializeObject(plan);
+
+                long result = ProduitDAO.insertProduit(plan);
+
+                if (result == 0)
+                {
+                    return "Erreur";
+                }
+                else
+                {
+                    plan.ID = (int)result;
+                    return JsonConvert.SerializeObject(plan);
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -73,17 +98,17 @@ namespace Produits.Controllers
 
         // POST: Produits/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public string Edit(int id)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return "non implémenté";
             }
             catch
             {
-                return View();
+                return "Erreur";
             }
         }
 
@@ -95,8 +120,17 @@ namespace Produits.Controllers
 
         // DELETE : Produits/Delete/5
         [HttpDelete]
-        public string Delete(int id)
+        public string Delete(string id)
         {
+            int id_real;
+            if(!Int32.TryParse(id, out id_real)){
+                ProduitDAO.deleteParNomProduit(id);
+            }
+            else
+            {
+                ProduitDAO.deleteParID(id_real);
+            }
+
             try
             {
                 // TODO: Add delete logic here
