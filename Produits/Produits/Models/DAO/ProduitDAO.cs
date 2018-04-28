@@ -254,7 +254,36 @@ namespace simoncharlos.DAO
 
         }
 
+        public static bool UpdateProduit(Produit produit)
+        {
+            try
+            {
+                MySqlConnection cnx = new MySqlConnection();
+                cnx.ConnectionString = Config.connectStr;
 
+                cnx.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = "Update produits set PRIX = @prix, NUMERO = @numero, NOMPRODUIT = @nomProduit, QUANTITE = @quantite WHERE ID = @id ;";
+
+                cmd.Parameters.AddWithValue("@idx", produit.ID);
+                cmd.Parameters.AddWithValue("@prix", produit.Prix);
+                cmd.Parameters.AddWithValue("@numero", produit.Numero);
+                cmd.Parameters.AddWithValue("@nomProduit", produit.NomProduit);
+                cmd.Parameters.AddWithValue("@quantite", produit.Quantite);
+
+                cmd.Connection = cnx;
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
+
+
 }
