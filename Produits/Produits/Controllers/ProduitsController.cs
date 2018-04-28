@@ -68,7 +68,7 @@ namespace Produits.Controllers
                     return "Erreur";
                 }
 
-                long result = ProduitDAO.insertProduit(plan);
+                long result = ProduitDAO.createProduit(plan);
 
                 if (result == 0)
                 {
@@ -97,17 +97,38 @@ namespace Produits.Controllers
         //}
 
         // POST: Produits/Edit/5
-        [HttpPost]
-        public string Edit(int id)
+        [HttpPut]
+        public string Edit()
         {
+            Stream req = Request.InputStream;
+            req.Seek(0, System.IO.SeekOrigin.Begin);
+            string json = new StreamReader(req).ReadToEnd();
+
+            Produit plan = null;
             try
             {
-                // TODO: Add update logic here
+                plan = JsonConvert.DeserializeObject<Produit>(json);
+                if (plan == null)
+                {
+                    return "Erreur";
+                }
 
-                return "non implémenté";
+                bool result = ProduitDAO.UpdateProduit(plan);
+
+                if (result == false)
+                {
+                    return "Erreur";
+                }
+                else
+                {
+                    return JsonConvert.SerializeObject(plan);
+                }
+
+
             }
-            catch
+            catch (Exception ex)
             {
+                // Try and handle malformed POST body
                 return "Erreur";
             }
         }

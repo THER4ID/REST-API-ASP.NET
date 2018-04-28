@@ -126,7 +126,7 @@ namespace simoncharlos.DAO
             return listeProduit;
         }
 
-        public static long insertProduit(Produit produit)
+        public static long createProduit(Produit produit)
         {
             try
             {
