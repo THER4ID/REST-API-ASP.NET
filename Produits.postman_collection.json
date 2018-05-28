@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "7378bd24-b16a-438b-bb2f-c0b220094049",
+		"name": "Produits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Prix\": 250000,\r\n    \"Numero\": \"A32\",\r\n    \"NomProduit\": \"VoitureDeLuxeAPrixInjustifié\",\r\n    \"Quantite\": 1\r\n}"
+				},
+				"url": {
+					"raw": "70.82.131.14:83/produits/create",
+					"host": [
+						"70",
+						"82",
+						"131",
+						"14"
+					],
+					"port": "83",
+					"path": [
+						"produits",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Prix\": 25000,\r\n    \"Numero\": \"A32\",\r\n    \"NomProduit\": \"Voiture\",\r\n    \"Quantite\": 1\r\n}"
+				},
+				"url": {
+					"raw": "70.82.131.14:83/produits/delete/4",
+					"host": [
+						"70",
+						"82",
+						"131",
+						"14"
+					],
+					"port": "83",
+					"path": [
+						"produits",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Prix\": 250000,\r\n    \"Numero\": \"A32\",\r\n    \"NomProduit\": \"VoitureDeLuxeAPrixInjustifié\",\r\n    \"Quantite\": 1\r\n}"
+				},
+				"url": {
+					"raw": "70.82.131.14:83/produits",
+					"host": [
+						"70",
+						"82",
+						"131",
+						"14"
+					],
+					"port": "83",
+					"path": [
+						"produits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"6\"\r\n    \"Prix\": 30000000,\r\n    \"Numero\": \"42\",\r\n    \"NomProduit\": \"Orage de la vie\",\r\n    \"Quantite\": 2\r\n}"
+				},
+				"url": {
+					"raw": "70.82.131.14:83/produits/details/5",
+					"host": [
+						"70",
+						"82",
+						"131",
+						"14"
+					],
+					"port": "83",
+					"path": [
+						"produits",
+						"details",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Prix\": 250000,\r\n    \"Numero\": \"A32\",\r\n    \"NomProduit\": \"VoitureDeLuxeAPrixInjustifié\",\r\n    \"Quantite\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://70.82.131.14:83/produits/Edit/4",
+					"protocol": "http",
+					"host": [
+						"70",
+						"82",
+						"131",
+						"14"
+					],
+					"port": "83",
+					"path": [
+						"produits",
+						"Edit",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
