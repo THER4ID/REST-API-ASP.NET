@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Avril 2018 à 23:31
+-- Généré le :  Jeu 24 Mai 2018 à 03:19
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.4.31
 
@@ -33,6 +33,17 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `NOMPRODUIT` varchar(255) NOT NULL,
   `QUANTITE` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `produits`
+--
+
+INSERT INTO `produits` (`ID`, `PRIX`, `NUMERO`, `NOMPRODUIT`, `QUANTITE`) VALUES
+(1, 12, '143', 'Biere', 100),
+(2, 10, '4534', 'Banane', 50),
+(3, 2, '54312', 'Soupe', 200),
+(4, 20, '654', 'Dinde', 15),
+(5, 12, '123542', 'Vin', 300);
 
 --
 -- Index pour les tables exportées
